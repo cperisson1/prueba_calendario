@@ -1,4 +1,5 @@
-import 'package:calendar_test_2/models/calendar_model.dart';
+
+import 'package:calendar_test_2/src/models/calendar_model.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
