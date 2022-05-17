@@ -89,6 +89,34 @@ class MeetingDataSource extends CalendarDataSource {
   }
 }
 
+class Calendar {
+
+    Calendar({
+       required this.id, 
+       required this.title, 
+    });  
+
+   int id;
+   String title;
+  
+  //-
+
+    factory Calendar.fromJson(String str) => Calendar.fromMap(json.decode(str));
+
+    String toJson() => json.encode(toMap());
+
+    //crea la instancia desde los datos en json
+    factory Calendar.fromMap(Map<String, dynamic> json) => Calendar(
+        id: json["id"],
+        title: json["id"],
+    );
+
+    Map<String, dynamic> toMap() => {
+        "id": id,
+        "title": title
+    };
+}
+
 /// Custom business object class which contains properties to hold the detailed
 /// information about the event data which will be rendered in calendar.
 

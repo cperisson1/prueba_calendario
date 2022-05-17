@@ -3,19 +3,19 @@ import 'package:calendar_test_2/src/models/calendar_model.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
-import 'calendar_provider.dart';
+import '../providers/calendar_provider.dart';
 
 /// The hove page which hosts the calendar
-class MyHomePage extends StatefulWidget {
+class CalendarScreen extends StatefulWidget {
   /// Creates the home page to display teh calendar widget.
-  const MyHomePage({Key? key}) : super(key: key);
+  const CalendarScreen({Key? key}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
-  _MyHomePageState createState() => _MyHomePageState();
+  _CalendarScreenState createState() => _CalendarScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _CalendarScreenState extends State<CalendarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,9 +47,12 @@ class _MyHomePageState extends State<MyHomePage> {
   SfCalendar showCalendar(lista) {
 
     return SfCalendar(
+      firstDayOfWeek: 1,
           showNavigationArrow: true,
           todayHighlightColor: Colors.black,
           allowDragAndDrop: true,
+          headerStyle: const CalendarHeaderStyle(textStyle: TextStyle(color:Colors.red,fontSize: 20, fontWeight:FontWeight.bold),),
+          viewHeaderStyle: const ViewHeaderStyle(dayTextStyle: TextStyle(color:Colors.red,fontWeight: FontWeight.bold),),
           onTap: (dia){
             print("## dia a grabar ${dia.date}");
           },
