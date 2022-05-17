@@ -48,6 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return SfCalendar(
           showNavigationArrow: true,
+          todayHighlightColor: Colors.black,
           allowDragAndDrop: true,
           onTap: (dia){
             print("## dia a grabar ${dia.date}");
@@ -57,14 +58,23 @@ class _MyHomePageState extends State<MyHomePage> {
             DateTime(2022, 05, 14),
             DateTime(2022, 05, 15)
           ],
-          backgroundColor:const Color.fromARGB(255, 223, 237, 192),
+          backgroundColor:const Color.fromARGB(255, 255, 255, 255),
           view: CalendarView.month,
+          selectionDecoration:BoxDecoration(
+          color: Colors.transparent,
+            border:
+              Border.all(color: const Color.fromARGB(255, 255, 68, 68),
+                    width: 2),
+            borderRadius: const BorderRadius.all(Radius.circular(4)),
+            shape: BoxShape.rectangle,
+        ) ,
+          cellBorderColor: Colors.red,
           dataSource: MeetingDataSource(lista),
           monthViewSettings: const MonthViewSettings(
                 //agendaStyle: AgendaStyle(),
                 monthCellStyle: MonthCellStyle(
-                todayBackgroundColor: Color.fromARGB(255, 230, 208, 215),
-                backgroundColor: Color.fromARGB(133, 184, 210, 252)),
+                todayBackgroundColor: Color.fromARGB(255, 255, 38, 0),
+                backgroundColor: Color.fromARGB(133, 255, 255, 255)),
                 agendaItemHeight: 30,
                 agendaViewHeight: 20,
                 showAgenda: false, //true para que muestre la agenda es la parte inferior, util si hay mas de un evento por dia
